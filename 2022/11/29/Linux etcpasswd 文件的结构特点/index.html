@@ -5,8 +5,8 @@
   <meta name="Volantis" content="6.0.0-alpha.0">
   <meta charset="utf-8">
   <!-- SEO相关 -->
-  <meta name="robots" content="noindex,follow">
-  <link rel="canonical" href="http://example.com/categories/"/>
+  
+  <link rel="canonical" href="http://example.com/2022/11/29/linux etcpasswd 文件的结构特点/"/>
   <!-- 渲染优化 -->
     <meta http-equiv='x-dns-prefetch-control' content='on' />
       <link rel='dns-prefetch' href='https://unpkg.com'>
@@ -33,19 +33,19 @@
 
   <!-- feed -->
   <!-- 页面元数据 -->
-  <title>所有分类 - blog</title>
+  <title>blog</title>
   <meta name="keywords" content="null">
   <meta desc name="description" content="test - kingap - blog">
   
-<meta property="og:type" content="website">
-<meta property="og:title" content="所有分类">
-<meta property="og:url" content="http://example.com/categories/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="blog">
+<meta property="og:url" content="http://example.com/2022/11/29/Linux%20etcpasswd%20%E6%96%87%E4%BB%B6%E7%9A%84%E7%BB%93%E6%9E%84%E7%89%B9%E7%82%B9/index.html">
 <meta property="og:site_name" content="blog">
-<meta property="og:description" content="test">
+<meta property="og:description" content="Linux etc&#x2F;passwd 文件的结构特点七个字段的详细含义以第一行root:x:0:0:root:&#x2F;root:&#x2F;bin&#x2F;bash为例： *第一个字段中保存的是：注册名，也就是用户名称，这里为root。 *第二字段为：口令(passwd)，也就是密码，这里的x代表的是密码标志，而不是真正的密码，真正的密码是保存在 &#x2F;etc&#x2F;shadow 文件中。注：在早期的 U">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png">
-<meta property="article:published_time" content="2022-11-19T01:18:17.062Z">
-<meta property="article:modified_time" content="2022-11-19T01:18:17.062Z">
+<meta property="article:published_time" content="2022-11-29T13:11:39.143Z">
+<meta property="article:modified_time" content="2022-11-29T13:11:39.446Z">
 <meta property="article:author" content="kingap">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png">
@@ -2397,7 +2397,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
       <!-- see: /layout/_partial/scripts/_ctrl/coverCtrl.ejs -->
-      <div id="none" class='cover-wrapper category search' style="display: none;">
+      <div id="none" class='cover-wrapper post search' style="display: none;">
         
   <div class='cover-bg lazyload placeholder' data-bg="https://s1.vika.cn/space/2022/09/09/aec0dbb7d8b74aecac29572cb929b84a"></div>
 
@@ -2453,22 +2453,184 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="safearea">
         <div class="body-wrapper">
           
-
 <div id="l_main" class=''>
+  <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow floatable blur article-type-post" id="post" itemscope itemprop="blogPost">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2022/11/29/Linux etcpasswd 文件的结构特点/">
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="blog">
+  </span>
+  <span hidden itemprop="post" itemscope itemtype="http://schema.org/Post">
+    <meta itemprop="name" content="blog">
+    <meta itemprop="description" content="test">
+  </span>
+  
+
+
+  
+    <span hidden>
+      <meta itemprop="image" content="https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png">
+    </span>
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <span hidden itemprop="name headline">
+        
+      </span>
+    
+  </div>
+
+
+  <div id="layoutHelper-page-plugins"></div>
+  <div id="post-body" itemprop="articleBody">
+    <h1 id="Linux-etc-x2F-passwd-文件的结构特点"><a href="#Linux-etc-x2F-passwd-文件的结构特点" class="headerlink" title="Linux etc&#x2F;passwd 文件的结构特点"></a>Linux etc&#x2F;passwd 文件的结构特点</h1><h2 id="七个字段的详细含义"><a href="#七个字段的详细含义" class="headerlink" title="七个字段的详细含义"></a>七个字段的详细含义</h2><p>以第一行<code>root:x:0:0:root:/root:/bin/bash</code>为例：</p>
+<p>*第一个字段中保存的是：注册名，也就是用户名称，这里为root。</p>
+<p>*第二字段为：口令(passwd)，也就是密码，这里的x代表的是密码标志，而不是真正的密码，真正的密码是保存在 &#x2F;etc&#x2F;shadow 文件中。<br>注：在早期的 UNIX 中，这里保存的就是真正的加密密码串。现在的Unix&#x2F;Linux系统中，口令不再直接保存在passwd文件中，通常将passwd文件中的口令字段使用一个“x”来代替，将&#x2F;etc &#x2F;shadow作为真正的口令文件，用于保存包括个人口令在内的数据。</p>
+<p>*第三个字段就是用户 ID(UID)，这里为0，代表超级用户。<br>注：0&#x3D;超级用户、1~499&#x3D;系统用户（伪用户）、500-65535&#x3D;普通用户。</p>
+<p>*第四个字段就是用户的组 ID、这里为0，代表所属组为0组。</p>
+<p>*第五个字段是这个用户的简单说明，这里为root，没有什么特殊作用，可以不写。<br>注：如用户的真实姓名、办公室地址、联系电话等。</p>
+<p>*第六个字段是这个用户的家目录，这里为&#x2F;root。<br>注：超级用户的家目录是 &#x2F;root 目录，普通用户在 &#x2F;home&#x2F; 目录下建立和用户名相同的目录作为家目录，如 lamp 用户的家目录就是 &#x2F;home&#x2F;lamp&#x2F; 目录。</p>
+<p>*第七个字段为：用户登录系统时运行的程序名称，通常是一个Shell程序的全路径名，可以理解为用户登录之后所拥有的权限，这里为&#x2F;bin&#x2F;bash，代表可以使用bash程序。<br>例：若为&#x2F;sbin&#x2F;nologin代表禁止登录，一般为系统用户。若为&#x2F;usr&#x2F;bin&#x2F;passwd，这是修改用户密码程序的路径，代表用户只能改自己的密码。</p>
+
+  </div>
+  
   
     
-      <div class='post-wrapper'>
-        <article id="cat" class="post article white-box reveal shadow floatable blur">
-          <h2>所有分类</h2>
-          <div class="all-cats">
-            
-          </div>
-          <br>
+    <div class='footer'>
+       <!-- 参考资料、相关资料等 -->
+      
+       <!-- 相关文章 -->
+      
+      <!-- 版权声明组件 -->
+      
+      <!-- 打赏组件 -->
+      
+    </div>
+  
+  
+    
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-11-29T21:11:39+08:00">
+  <a class='notlink'>
+    <i class="fa-solid fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：Nov 29, 2022</p>
+  </a>
+</div>
+
+        
+      
+        
           
-        </article>
-      </div>
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
     
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://example.com/2022/11/29/Linux%20etcpasswd%20%E6%96%87%E4%BB%B6%E7%9A%84%E7%BB%93%E6%9E%84%E7%89%B9%E7%82%B9/&title= - blog&summary="
+          
+          >
+          
+            <img src="https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/logo/128/qq.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/logo/128/qq.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://example.com/2022/11/29/Linux%20etcpasswd%20%E6%96%87%E4%BB%B6%E7%9A%84%E7%BB%93%E6%9E%84%E7%89%B9%E7%82%B9/&title= - blog&summary="
+          
+          >
+          
+            <img src="https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/logo/128/qzone.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/logo/128/qzone.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://example.com/2022/11/29/Linux%20etcpasswd%20%E6%96%87%E4%BB%B6%E7%9A%84%E7%BB%93%E6%9E%84%E7%89%B9%E7%82%B9/&title= - blog&summary="
+          
+          >
+          
+            <img src="https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/logo/128/weibo.png" class="lazyload" data-srcset="https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/logo/128/weibo.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+    <!-- Custom Files bottomMeta begin -->
+    
+    <!-- Custom Files bottomMeta end -->
+  </div>
+
+
   
+  
+
+  
+    <div class="prev-next">
+      
+      
+        <a class='next' href='/2022/11/18/hello-world/'>
+          <p class='title'>Hello World<i class="fa-solid fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any ...</p>
+        </a>
+      
+    </div>
+  
+  <!-- 文章推荐 -->
+  
+  
+  <!-- Custom Files postEnd begin-->
+  
+  <!-- Custom Files postEnd end-->
+</article>
+
+
+  
+
+
+  <article class="post white-box shadow floatable blur" id="comments">
+    <span hidden>
+      <meta itemprop="discussionUrl" content="/2022/11/29/Linux%20etcpasswd%20%E6%96%87%E4%BB%B6%E7%9A%84%E7%BB%93%E6%9E%84%E7%89%B9%E7%82%B9/index.html#comments">
+    </span>
+    <p ct><i class='fa-solid fa-comments'></i> 评论</p>
+    
+
+    <div id="layoutHelper-comments"></div>
+
+  </article>
+
+
+
+
+
+
 </div>
 <aside id='l_side' itemscope itemtype="http://schema.org/WPSideBar">
   
@@ -2487,9 +2649,19 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
 
 
-  <div class="">
-    <!-- pjax占位 -->
-  </div>
+  <section class="widget toc-wrapper desktop mobile " id="toc-div" >
+    
+  <header>
+    
+      <i class="fa-solid fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E4%B8%AA%E5%AD%97%E6%AE%B5%E7%9A%84%E8%AF%A6%E7%BB%86%E5%90%AB%E4%B9%89"><span class="toc-text">七个字段的详细含义</span></a></li></ol>
+    </div>
+  </section>
 
   
 
@@ -2538,6 +2710,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
   <!-- Custom Files side end -->
 </aside>
+
 
 
           <!--此文件用来存放一些不方便取值的变量-->
@@ -3183,7 +3356,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 </script>
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"kingap","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"test"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"blog"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"blog","url":"http://example.com/","keywords":null,"description":"test","author":{"@type":"Person","name":"kingap","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","description":"test"},"publisher":{"@type":"Organization","name":"blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://example.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","headline":"所有分类","description":"test","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/categories/index.html"},"author":{"@type":"Person","name":"kingap","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/categories/index.html","wordCount":0,"datePublished":"2022-11-19T01:18:17.062Z","dateModified":"2022-11-19T01:18:17.062Z","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"kingap","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","sameAs":["https://github.com/volantis-x"],"description":"test"},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"http://example.com/","name":"blog"}},{"@type":"ListItem","position":3,"item":{"@id":"http://example.com/2022/11/29/Linux etcpasswd 文件的结构特点/"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"blog","url":"http://example.com/","keywords":null,"description":"test","author":{"@type":"Person","name":"kingap","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/","description":"test"},"publisher":{"@type":"Organization","name":"blog","url":"http://example.com/","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"http://example.com?s={search_term_string}"},"query-input":"required name=search_term_string"}},{"@context":"http://schema.org","@type":"BlogPosting","description":"test","inLanguage":"en","mainEntityOfPage":{"@type":"WebPage","@id":"http://example.com/2022/11/29/Linux%20etcpasswd%20%E6%96%87%E4%BB%B6%E7%9A%84%E7%BB%93%E6%9E%84%E7%89%B9%E7%82%B9/"},"author":{"@type":"Person","name":"kingap","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png"},"url":"http://example.com/"},"publisher":{"@type":"Organization","name":"blog","logo":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"http://example.com/2022/11/29/Linux%20etcpasswd%20%E6%96%87%E4%BB%B6%E7%9A%84%E7%BB%93%E6%9E%84%E7%89%B9%E7%82%B9/","wordCount":0,"datePublished":"2022-11-29T13:11:39.143Z","dateModified":"2022-11-29T13:11:39.446Z","image":{"@type":"ImageObject","url":"https://unpkg.com/volantis-static@0.0.1660614606622/media/org.volantis/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 
